@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: pixapi
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: pixapi
+ template:
+  metadata:
+   labels:
+    app: pixapi
+  spec:
+   containers:
+    - name: pixapi
+      image: rafaj2ee/pix-api:latest
+      ports:
+       - containerPort: 9090  
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: pixapi
+spec:
+ selector:
+  app: pixapi
+ ports:
+  - port: 80
+    targetPort: 9090
+ type: LoadBalancer
