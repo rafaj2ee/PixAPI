@@ -1,18 +1,24 @@
 package com.rafaj2ee.util;
 
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+
+import org.springframework.boot.SpringApplication;
 
 public class PixCopyPasteGenerator {
 
-    public static void main(String[] args) {
-        // Exemplos de entrada
-        String pixKey = "f448a23e-33f1-4f98-9ebf-5c50833b3ee1";
-        String amount = "1.50"; // amount em formato decimal com 2 casas
-        
-        // Gerar Pix Copia e Cola
-        String pixCopiaCola = generatePixCopyPaste(pixKey, amount, "SAO PAULO", "Fulano de Tal");
-        System.out.println("Código Pix Copia e Cola: \n" + pixCopiaCola);
-    }
+
+
+	public static void main(String[] args) {
+	    InputStream is = PixCopyPasteGenerator.class.getResourceAsStream("/keystore.p12");
+	    if (is == null) {
+	        System.out.println("Keystore not found!");
+	    } else {
+	        System.out.println("Keystore found!");
+	    }
+	    SpringApplication.run(PixCopyPasteGenerator.class, args);
+	}
+
 
     public static String generatePixCopyPaste(String pixKey, String amount, String merchantCity, String merchantName) {
         StringBuilder payload = new StringBuilder();

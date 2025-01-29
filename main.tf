@@ -30,8 +30,8 @@ module "vpc" {
   }
 
   public_subnet_tags = {
-    Name                                  = format("%s-sub-public", var.eks_name),
-    "kubernetes.io/role/elb"              = 1,
+    Name                                    = format("%s-sub-public", var.eks_name),
+    "kubernetes.io/role/elb"                = 1,
     "kubernetes.io/cluster/${var.eks_name}" = "shared"
   }
 }
@@ -58,7 +58,6 @@ module "eks" {
   }
 }
 
-# Security Group for the EC2 Instance
 resource "aws_security_group" "ec2_sg" {
   vpc_id = module.vpc.vpc_id
 
@@ -67,6 +66,13 @@ resource "aws_security_group" "ec2_sg" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]  # Allow SSH from anywhere (restrict in production)
+  }
+
+  ingress {
+    from_port   = 9090
+    to_port     = 9090
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]  # Allow access to port 9090 from anywhere
   }
 
   egress {
@@ -81,20 +87,19 @@ resource "aws_security_group" "ec2_sg" {
   }
 }
 
-# EC2 Instance in the Public Subnet
 resource "aws_instance" "public_ec2" {
   ami                         = "ami-0c02fb55956c7d316"  # Amazon Linux 2 AMI (us-east-1)
   instance_type               = "t2.micro"
   subnet_id                   = module.vpc.public_subnets[0]  # Use the first public subnet
   associate_public_ip_address = true  # Assign a public IP
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
+  key_name                    = "live"  # Use the existing key pair named "live"
 
   tags = {
     Name = "public-ec2-instance"
   }
 }
 
-# Output the Public IP of the EC2 Instance
 output "ec2_public_ip" {
   value = aws_instance.public_ec2.public_ip
 }
