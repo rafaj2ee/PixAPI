@@ -14,8 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.rafaj2ee.DTO.PurchaseTransactionConversionDTO;
-import com.rafaj2ee.DTO.PurchaseTransactionDTO;
+import com.rafaj2ee.dto.PurchaseTransactionConversionDTO;
+import com.rafaj2ee.dto.PurchaseTransactionDTO;
 import com.rafaj2ee.exception.CurrencyConversionException;
 import com.rafaj2ee.model.PurchaseTransaction;
 import com.rafaj2ee.repository.PurchaseTransactionRepository;

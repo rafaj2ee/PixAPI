@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rafaj2ee.DTO.PurchaseTransactionConversionDTO;
-import com.rafaj2ee.DTO.PurchaseTransactionDTO;
+import com.rafaj2ee.dto.PurchaseTransactionConversionDTO;
+import com.rafaj2ee.dto.PurchaseTransactionDTO;
 import com.rafaj2ee.exception.CurrencyConversionException;
 import com.rafaj2ee.exception.ErrorResponse;
 import com.rafaj2ee.model.PurchaseTransaction;

@@ -1,4 +1,4 @@
-package com.rafaj2ee.DTO;
+package com.rafaj2ee.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

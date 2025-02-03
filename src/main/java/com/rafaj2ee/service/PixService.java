@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rafaj2ee.DTO.PixDTO;
+import com.rafaj2ee.dto.PixDTO;
 import com.rafaj2ee.model.Pix;
 import com.rafaj2ee.model.PurchaseTransaction;
 import com.rafaj2ee.repository.PixRepository;

@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.zxing.WriterException;
-import com.rafaj2ee.DTO.PixDTO;  // Atualizada a importação
+import com.rafaj2ee.dto.PixDTO;
 import com.rafaj2ee.model.Counter;
 import com.rafaj2ee.model.PurchaseTransaction;
 import com.rafaj2ee.service.CounterService;
