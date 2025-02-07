@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CurrencyConversionApplication {
+public class CurrencyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CurrencyConversionApplication.class, args);
+        SpringApplication.run(CurrencyApplication.class, args);
     }
 }

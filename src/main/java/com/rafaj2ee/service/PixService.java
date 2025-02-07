@@ -23,7 +23,7 @@ public class PixService {
     @Autowired
     private PurchaseTransactionRepository purchaseTransactionRepository;
 
-    public PurchaseTransaction saveTransaction(PixDTO dto) throws Exception {
+    public Pix saveTransaction(PixDTO dto) throws Exception {
         // Convert transactionDate to LocalDateTime
         LocalDateTime transactionDate = LocalDate.parse(dto.getTransactionDate(), Constant.FORMAT).atStartOfDay();
 
@@ -46,7 +46,7 @@ public class PixService {
         //purchaseTransaction.setPix(pix);
 
         purchaseTransactionRepository.save(purchaseTransaction);
-
-        return purchaseTransaction;
+        pixRepository.save(pix);
+        return pix;
     }
 }

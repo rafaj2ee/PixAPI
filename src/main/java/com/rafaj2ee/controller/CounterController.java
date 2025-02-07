@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/counters")
+@RequestMapping("/api/v1/counters")
 public class CounterController {
 
     @Autowired

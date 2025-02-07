@@ -2,6 +2,7 @@ package com.rafaj2ee.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -23,12 +24,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.google.zxing.WriterException;
 import com.rafaj2ee.dto.PixDTO;
 import com.rafaj2ee.model.Counter;
-import com.rafaj2ee.model.PurchaseTransaction;
+import com.rafaj2ee.model.Pix;
 import com.rafaj2ee.service.CounterService;
 import com.rafaj2ee.service.PixService;
 import com.rafaj2ee.service.QRCodeService;
 import com.rafaj2ee.util.PixCopyPasteGenerator;
 
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/pix")
 public class PixController {
@@ -43,7 +46,7 @@ public class PixController {
     private CounterService counterService;
     
     @PostMapping
-    public PurchaseTransaction saveTransaction(@Valid @RequestBody PixDTO dto) throws Exception {
+    public Pix savePix(@Valid @RequestBody PixDTO dto) throws Exception {
         return pixService.saveTransaction(dto);
     }
 
@@ -56,6 +59,7 @@ public class PixController {
         // Validate and convert amount
         BigDecimal amountValue;
         try {
+            Counter counter = counterService.findOrCreateCounterByName("generate");
             amountValue = new BigDecimal(amount).setScale(2, BigDecimal.ROUND_HALF_UP);
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("Amount must be a valid decimal number.");
@@ -75,6 +79,7 @@ public class PixController {
         // Validate and convert amount
         BigDecimal amountValue;
         try {
+        	
             amountValue = new BigDecimal(amount).setScale(2, BigDecimal.ROUND_HALF_UP);
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("Amount must be a valid decimal number.");
@@ -90,12 +95,27 @@ public class PixController {
 //        System.out.println(request.getLocalName());
 //        System.out.println(request.getLocale().getDisplayName());
         // Generate Pix Copy and Paste code
-        String pixCode = PixCopyPasteGenerator.generatePixCopyPaste(pixKey, amountValue.toString(), merchantCity, merchantName);
+//        String pixCode = PixCopyPasteGenerator.generatePixCopyPaste(pixKey, amountValue.toString(), merchantCity, merchantName);
 
         // Generate QR Code
-        byte[] qrCode = qrCodeService.generateQRCode(pixCode, 300, 300);
-        String qrCodeBase64 = Base64Utils.encodeToString(qrCode);
         Counter counter = counterService.findOrCreateCounterByName("generate-qr");
+        PixDTO dto = new PixDTO();
+        dto.setAmount(amountValue);
+        dto.setDescription("Pix QR Generated");
+        dto.setMerchantCity(merchantCity);
+        dto.setMerchantName(merchantName);
+        dto.setPixKey(pixKey);        
+        dto.setTransactionDate(LocalDate.now().toString());
+        String qrCodeBase64 = null;
+        String pixCode = null;
+        try {
+        	pixCode = pixService.saveTransaction(dto).getPixCode();
+	        byte[] qrCode = qrCodeService.generateQRCode(pixCode, 300, 300);
+	        qrCodeBase64 = Base64Utils.encodeToString(qrCode);
+
+		} catch (Exception e) {
+			log.error(e.getMessage()+e.getCause());
+		}
         // Generate HTML response with copy button
         String htmlResponse = "<html><body>"
             + "<h2>Pix QR Code</h2>"
@@ -128,7 +148,7 @@ public class PixController {
         // Generate QR Code
         byte[] qrCode = qrCodeService.generateQRCode(content, 300, 300);
         String qrCodeBase64 = Base64Utils.encodeToString(qrCode);
-        Counter counter = counterService.findOrCreateCounterByName("generate-qr");
+        Counter counter = counterService.findOrCreateCounterByName("generate-qr-content");
         // Generate HTML response with copy button
         String htmlResponse = "<html><body>"
             + "<h2>QR Content</h2>"

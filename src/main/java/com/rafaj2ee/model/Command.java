@@ -1,33 +1,30 @@
 package com.rafaj2ee.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.Lob;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
-public class PurchaseTransaction {
+@Table(name = "command")
+public class Command {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
-    @Size(max = 50)
-    private String description;
+    private String commandLine;
+    
+    private LocalDateTime executedAt;
 
-    @NotNull
-    private BigDecimal amount;
+    private String result;
 
-    @NotNull
-    private LocalDateTime transactionDate;
-
-
+    // Getters and setters
 }
