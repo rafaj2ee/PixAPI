@@ -1,0 +1,27 @@
+scalar Long
+scalar BigDecimal
+scalar DateTime
+scalar LocalDateTime
+
+type Query {
+    getPurchaseTransaction(id: Long!): PurchaseTransaction
+    getAllPurchaseTransactions: [PurchaseTransaction]
+}
+
+type Mutation {
+    createPurchaseTransaction(input: PurchaseTransactionInput!): PurchaseTransaction
+    updatePurchaseTransaction(id: Long!, input: PurchaseTransactionInput!): PurchaseTransaction
+}
+
+type PurchaseTransaction {
+    id: Long
+    description: String
+    amount: BigDecimal
+    transactionDate: LocalDateTime
+}
+
+input PurchaseTransactionInput {
+    description: String!
+    amount: BigDecimal!
+    transactionDate: String!
+}
