@@ -7,6 +7,7 @@ C:\project\PixAPI\src\main\java\com\rafaj2ee\config\HttpAndHttpsConfig.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\util\PixCopyPasteGenerator.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\config\SwaggerConfig.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\service\CounterService.java
+C:\project\PixAPI\src\main\java\com\rafaj2ee\config\DateTimeConfig.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\model\Pix.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\exception\ErrorResponse.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\model\PurchaseTransaction.java
@@ -22,6 +23,7 @@ C:\project\PixAPI\src\main\java\com\rafaj2ee\model\QueryResponse.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\dto\PurchaseTransactionDTO.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\repository\PurchaseTransactionRepository.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\service\QRCodeService.java
+C:\project\PixAPI\src\main\java\com\rafaj2ee\config\GraphQLScalarsConfig.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\controller\PixController.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\dto\PurchaseTransactionConversionDTO.java
 C:\project\PixAPI\src\main\java\com\rafaj2ee\controller\PurchaseTransactionController.java

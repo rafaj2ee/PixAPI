@@ -2,7 +2,9 @@ com\rafaj2ee\util\PixCopyPasteGenerator.class
 com\rafaj2ee\exception\CurrencyConversionException.class
 com\rafaj2ee\dto\PurchaseTransactionConversionDTO.class
 com\rafaj2ee\exception\ErrorResponse.class
+com\rafaj2ee\config\DateTimeConfig.class
 com\rafaj2ee\service\CommandService.class
+com\rafaj2ee\config\GraphQLScalarsConfig.class
 com\rafaj2ee\repository\CounterRepository.class
 com\rafaj2ee\resolver\PurchaseTransactionResolver.class
 com\rafaj2ee\service\CounterService.class
@@ -17,6 +19,7 @@ com\rafaj2ee\repository\CommandRepository.class
 com\rafaj2ee\exception\GlobalExceptionHandler.class
 com\rafaj2ee\PixApiApplication.class
 com\rafaj2ee\util\Constant.class
+com\rafaj2ee\config\DateTimeConfig$1.class
 com\rafaj2ee\config\SwaggerConfig.class
 com\rafaj2ee\dto\PurchaseTransactionDTO.class
 com\rafaj2ee\model\QueryResponse.class
