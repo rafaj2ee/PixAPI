@@ -2,12 +2,9 @@ package com.rafaj2ee.controller;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import java.util.Base64;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -30,6 +27,10 @@ import com.rafaj2ee.service.PixService;
 import com.rafaj2ee.service.QRCodeService;
 import com.rafaj2ee.util.PixCopyPasteGenerator;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
@@ -58,15 +59,19 @@ public class PixController {
                                   @RequestParam @NotBlank(message = "Merchant name cannot be blank.") String merchantName) {
         // Validate and convert amount
         BigDecimal amountValue;
+        log.info("pixKey "+pixKey+" amount "+amount+" merchantCity "+merchantCity+" merchantName "+merchantName);
         try {
             Counter counter = counterService.findOrCreateCounterByName("generate");
-            amountValue = new BigDecimal(amount).setScale(2, BigDecimal.ROUND_HALF_UP);
+            amountValue = new BigDecimal(amount).setScale(2, RoundingMode.HALF_UP);
         } catch (NumberFormatException ex) {
+        	log.error(ex.getMessage()+ex.getCause());
             throw new IllegalArgumentException("Amount must be a valid decimal number.");
         }
 
         // Generate Pix Copy and Paste code
-        return PixCopyPasteGenerator.generatePixCopyPaste(pixKey, amountValue.toString(), merchantCity, merchantName);
+        String pixCopyPaste = PixCopyPasteGenerator.generatePixCopyPaste(pixKey, amountValue.toString(), merchantCity, merchantName);
+        log.info("pixCopyPaste "+pixCopyPaste);
+        return pixCopyPaste;
     }
 
     @GetMapping("/generate-qr")
@@ -76,11 +81,12 @@ public class PixController {
                                                  @RequestParam @NotBlank(message = "Merchant city cannot be blank.") String merchantCity,
                                                  @RequestParam @NotBlank(message = "Merchant name cannot be blank.") String merchantName
                                                  , HttpServletRequest request) throws WriterException, IOException {
+        log.info("pixKey "+pixKey+" amount "+amount+" merchantCity "+merchantCity+" merchantName "+merchantName);
         // Validate and convert amount
         BigDecimal amountValue;
         try {
         	
-            amountValue = new BigDecimal(amount).setScale(2, BigDecimal.ROUND_HALF_UP);
+            amountValue = new BigDecimal(amount).setScale(2, RoundingMode.HALF_UP);
         } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("Amount must be a valid decimal number.");
         }
@@ -111,7 +117,9 @@ public class PixController {
         try {
         	pixCode = pixService.saveTransaction(dto).getPixCode();
 	        byte[] qrCode = qrCodeService.generateQRCode(pixCode, 300, 300);
-	        qrCodeBase64 = Base64Utils.encodeToString(qrCode);
+	        qrCodeBase64 = Base64.getEncoder().encodeToString(qrCode);
+	        String pixCopyPaste = PixCopyPasteGenerator.generatePixCopyPaste(pixKey, amountValue.toString(), merchantCity, merchantName);
+	        log.info("pixCode "+pixCode);
 
 		} catch (Exception e) {
 			log.error(e.getMessage()+e.getCause());
@@ -147,7 +155,7 @@ public class PixController {
     public ResponseEntity<String> generateQRCodeFromCode(@RequestParam @NotBlank(message = "Pix code cannot be blank.") String content) throws WriterException, IOException {
         // Generate QR Code
         byte[] qrCode = qrCodeService.generateQRCode(content, 300, 300);
-        String qrCodeBase64 = Base64Utils.encodeToString(qrCode);
+        String qrCodeBase64 = Base64.getEncoder().encodeToString(qrCode);
         Counter counter = counterService.findOrCreateCounterByName("generate-qr-content");
         // Generate HTML response with copy button
         String htmlResponse = "<html><body>"
@@ -170,7 +178,7 @@ public class PixController {
             + "}"
             + "</script>"
             + "</body></html>"; 
-
+        log.info("Qr Content "+content);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.TEXT_HTML);
         return ResponseEntity.ok().headers(headers).body(htmlResponse);

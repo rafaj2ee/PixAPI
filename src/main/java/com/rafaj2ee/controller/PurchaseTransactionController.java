@@ -4,10 +4,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +23,10 @@ import com.rafaj2ee.exception.ErrorResponse;
 import com.rafaj2ee.model.PurchaseTransaction;
 import com.rafaj2ee.service.PurchaseTransactionService;
 import com.rafaj2ee.util.Constant;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 @Validated
 @RestController

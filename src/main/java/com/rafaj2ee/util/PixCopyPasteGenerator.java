@@ -1,64 +1,60 @@
 package com.rafaj2ee.util;
 
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-
-import org.springframework.boot.SpringApplication;
 
 public class PixCopyPasteGenerator {
 
-
-
-	public static void main(String[] args) {
-	    InputStream is = PixCopyPasteGenerator.class.getResourceAsStream("/keystore.p12");
-	    if (is == null) {
-	        System.out.println("Keystore not found!");
-	    } else {
-	        System.out.println("Keystore found!");
-	    }
-	    SpringApplication.run(PixCopyPasteGenerator.class, args);
-	}
-
-
-    public static String generatePixCopyPaste(String pixKey, String amount, String merchantCity, String merchantName) {
+    public static String generatePixCopyPaste(String chave, String amount, 
+                                             String merchantCity, String merchantName) {
+        if(chave.startsWith("55")) {
+        	chave = "+"+chave;
+        }
         StringBuilder payload = new StringBuilder();
 
-        // ID 00 - Payload Format Indicator
-        payload.append("00").append("02").append("01");
+        // ID 00 - Payload Format Indicator (Versão 01)
+        payload.append("000201");
 
-        // ID 26 - Merchant Account Information
-        String merchantAccountInfo = "0014br.gov.bcb.pix01".toUpperCase() + formataramount(pixKey);
-        payload.append("26").append(formataramount(merchantAccountInfo.length())).append(merchantAccountInfo);
+        // ID 26 - Merchant Account Information (GUI + Chave PIX)
+        String gui = "0014br.gov.bcb.pix";
+        String campoChave = "01" + formatarTamanhoValor(chave.length()) + chave;
+        String merchantAccountInfo = gui + campoChave;
+        payload.append("26" + formatarTamanhoValor(merchantAccountInfo.length()) + merchantAccountInfo);
 
-        // ID 52 - Merchant Category Code (default: 0000 - não especificado)
+        // ID 52 - Merchant Category Code (0000 = Não especificado)
         payload.append("52040000");
 
-        // ID 53 - Transaction Currency (default: 986 - BRL)
+        // ID 53 - Moeda (986 = BRL)
         payload.append("5303986");
 
-        // ID 54 - Transaction Amount
+        // ID 54 - Valor da transação (opcional)
         if (amount != null && !amount.isEmpty()) {
-            payload.append("54").append(formataramount(amount.length())).append(amount);
+            payload.append("54" + formatarTamanhoValor(amount.length()) + amount);
         }
 
-        // ID 58 - Country Code (BR)
+        // ID 58 - Código do país (BR)
         payload.append("5802BR");
 
-        // ID 59 - Merchant Name (Exemplo: Nome genérico)
-        payload.append("59").append(formataramount(merchantName.length())).append(merchantName);
+        // ID 59 - Nome do recebedor
+        payload.append("59" + formatarTamanhoValor(merchantName.length()) + merchantName);
 
-        // ID 60 - Merchant City (Exemplo: BRASILIA)
-        payload.append("60").append(formataramount(merchantCity.length())).append(merchantCity);
+        // ID 60 - Cidade do recebedor
+        payload.append("60" + formatarTamanhoValor(merchantCity.length()) + merchantCity);
 
-        // ID 62 - Additional Data Field Template
-        String txid = "***"; // Identificador de transação genérico
-        payload.append("62").append(formataramount(4 + txid.length())).append("05").append(formataramount(txid.length())).append(txid);
+        // ID 62 - Dados adicionais (TXID genérico)
+        String txid = "***";
+        String additionalData = "05" + formatarTamanhoValor(txid.length()) + txid;
+        payload.append("62" + formatarTamanhoValor(additionalData.length()) + additionalData);
 
-        // ID 63 - CRC (calculado no final)
-        String crc = calcularCRC(payload.toString() + "6304");
-        payload.append("6304").append(crc);
+        // Calcula CRC16
+        String dadosParaCRC = payload.toString() + "6304";
+        String crc = calcularCRC(dadosParaCRC);
+        payload.append("6304" + crc);
 
         return payload.toString();
+    }
+
+    private static String formatarTamanhoValor(int length) {
+        return String.format("%02d", length);
     }
 
     private static String calcularCRC(String dados) {
@@ -67,7 +63,7 @@ public class PixCopyPasteGenerator {
 
         byte[] bytes = dados.getBytes(StandardCharsets.UTF_8);
         for (byte b : bytes) {
-            crc ^= (b << 8);
+            crc ^= (b & 0xFF) << 8;
             for (int i = 0; i < 8; i++) {
                 if ((crc & 0x8000) != 0) {
                     crc = (crc << 1) ^ polynomial;
@@ -78,13 +74,5 @@ public class PixCopyPasteGenerator {
         }
         crc &= 0xFFFF;
         return String.format("%04X", crc);
-    }
-
-    private static String formataramount(int length) {
-        return String.format("%02d", length);
-    }
-
-    private static String formataramount(String amount) {
-        return String.format("%02d", amount.length()) + amount;
     }
 }
