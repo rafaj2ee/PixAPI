@@ -1,0 +1,2150 @@
+{
+	"info": {
+		"_postman_id": "8e24523d-b479-447c-9cfa-36b20c65f4be",
+		"name": "Foto",
+		"description": "API para geração de QR Codes Pix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6219928"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "v1",
+					"item": [
+						{
+							"name": "fotos",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "buscar Por Id",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/fotos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"fotos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/fotos/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"fotos",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"dataCriacao\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"idUsuario\": \"<long>\",\n  \"ativo\": \"<boolean>\",\n  \"foto\": \"<string>\"\n}"
+												}
+											]
+										},
+										{
+											"name": "atualizar",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"dataCriacao\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"idUsuario\": \"<long>\",\n  \"ativo\": \"<boolean>\",\n  \"foto\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/fotos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"fotos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"dataCriacao\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"idUsuario\": \"<long>\",\n  \"ativo\": \"<boolean>\",\n  \"foto\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/fotos/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"fotos",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"dataCriacao\": \"<dateTime>\",\n  \"id\": \"<long>\",\n  \"idUsuario\": \"<long>\",\n  \"ativo\": \"<boolean>\",\n  \"foto\": \"<string>\"\n}"
+												}
+											]
+										},
+										{
+											"name": "deletar",
+											"request": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/fotos/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"fotos",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "No Content",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/fotos/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"fotos",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "No Content",
+													"code": 204,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "comparar",
+									"item": [
+										{
+											"name": "{idFotoRegistrada}",
+											"item": [
+												{
+													"name": "comparar Biometria",
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"file\": \"<binary>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/fotos/comparar/:idFotoRegistrada",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"fotos",
+																"comparar",
+																":idFotoRegistrada"
+															],
+															"variable": [
+																{
+																	"key": "idFotoRegistrada",
+																	"value": "<long>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"file\": \"<binary>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/fotos/comparar/:idFotoRegistrada",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"fotos",
+																		"comparar",
+																		":idFotoRegistrada"
+																	],
+																	"variable": [
+																		{
+																			"key": "idFotoRegistrada"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "*/*"
+																}
+															],
+															"cookie": [],
+															"body": "{}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "usuario",
+									"item": [
+										{
+											"name": "{idUsuario}",
+											"item": [
+												{
+													"name": "buscar Por Usuario",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/fotos/usuario/:idUsuario",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"fotos",
+																"usuario",
+																":idUsuario"
+															],
+															"variable": [
+																{
+																	"key": "idUsuario",
+																	"value": "<long>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/fotos/usuario/:idUsuario",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"fotos",
+																		"usuario",
+																		":idUsuario"
+																	],
+																	"variable": [
+																		{
+																			"key": "idUsuario"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "*/*"
+																}
+															],
+															"cookie": [],
+															"body": "[\n  {\n    \"dataCriacao\": \"<dateTime>\",\n    \"id\": \"<long>\",\n    \"idUsuario\": \"<long>\",\n    \"ativo\": \"<boolean>\",\n    \"foto\": \"<string>\"\n  },\n  {\n    \"dataCriacao\": \"<dateTime>\",\n    \"id\": \"<long>\",\n    \"idUsuario\": \"<long>\",\n    \"ativo\": \"<boolean>\",\n    \"foto\": \"<string>\"\n  }\n]"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "foto",
+									"item": [
+										{
+											"name": "usuario",
+											"item": [
+												{
+													"name": "{idUsuario}",
+													"item": [
+														{
+															"name": "buscar Foto Por Usuario",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/fotos/foto/usuario/:idUsuario",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"fotos",
+																		"foto",
+																		"usuario",
+																		":idUsuario"
+																	],
+																	"variable": [
+																		{
+																			"key": "idUsuario",
+																			"value": "<long>",
+																			"description": "(Required) "
+																		}
+																	]
+																}
+															},
+															"response": [
+																{
+																	"name": "OK",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [
+																			{
+																				"key": "Accept",
+																				"value": "*/*"
+																			}
+																		],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/v1/fotos/foto/usuario/:idUsuario",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"v1",
+																				"fotos",
+																				"foto",
+																				"usuario",
+																				":idUsuario"
+																			],
+																			"variable": [
+																				{
+																					"key": "idUsuario"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "text",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "*/*"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "<string>"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "criar",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"file\": \"<binary>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/fotos?dataCriacao=<dateTime>&id=<long>&idUsuario=<long>&ativo=<boolean>&foto=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"fotos"
+											],
+											"query": [
+												{
+													"key": "dataCriacao",
+													"value": "<dateTime>",
+													"description": "(Required) "
+												},
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												},
+												{
+													"key": "idUsuario",
+													"value": "<long>",
+													"description": "(Required) "
+												},
+												{
+													"key": "ativo",
+													"value": "<boolean>",
+													"description": "(Required) "
+												},
+												{
+													"key": "foto",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"file\": \"<binary>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/fotos?dataCriacao=<dateTime>&id=<long>&idUsuario=<long>&ativo=<boolean>&foto=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"fotos"
+													],
+													"query": [
+														{
+															"key": "dataCriacao",
+															"value": "<dateTime>",
+															"description": "(Required) "
+														},
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														},
+														{
+															"key": "idUsuario",
+															"value": "<long>",
+															"description": "(Required) "
+														},
+														{
+															"key": "ativo",
+															"value": "<boolean>",
+															"description": "(Required) "
+														},
+														{
+															"key": "foto",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "purchase-transactions",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "convert",
+											"item": [
+												{
+													"name": "convert Transaction Currency",
+													"request": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/purchase-transactions/:id/convert?currency=<string>&country=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"purchase-transactions",
+																":id",
+																"convert"
+															],
+															"query": [
+																{
+																	"key": "currency",
+																	"value": "<string>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "country",
+																	"value": "<string>"
+																}
+															],
+															"variable": [
+																{
+																	"key": "id",
+																	"value": "<long>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "OK",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "*/*"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/purchase-transactions/:id/convert?currency=<string>&country=<string>",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"purchase-transactions",
+																		":id",
+																		"convert"
+																	],
+																	"query": [
+																		{
+																			"key": "currency",
+																			"value": "<string>",
+																			"description": "(Required) "
+																		},
+																		{
+																			"key": "country",
+																			"value": "<string>"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "text",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "*/*"
+																}
+															],
+															"cookie": [],
+															"body": "{}"
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "get Transactions",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/purchase-transactions?startDate=4064-34-98&endDate=4064-34-98",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"purchase-transactions"
+											],
+											"query": [
+												{
+													"key": "startDate",
+													"value": "4064-34-98",
+													"description": "(Required) "
+												},
+												{
+													"key": "endDate",
+													"value": "4064-34-98",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/purchase-transactions?startDate=4064-34-98&endDate=4064-34-98",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"purchase-transactions"
+													],
+													"query": [
+														{
+															"key": "startDate",
+															"value": "4064-34-98",
+															"description": "(Required) "
+														},
+														{
+															"key": "endDate",
+															"value": "4064-34-98",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"amount\": \"<number>\",\n    \"description\": \"<string>\",\n    \"transactionDate\": \"<dateTime>\",\n    \"id\": \"<long>\"\n  },\n  {\n    \"amount\": \"<number>\",\n    \"description\": \"<string>\",\n    \"transactionDate\": \"<dateTime>\",\n    \"id\": \"<long>\"\n  }\n]"
+										}
+									]
+								},
+								{
+									"name": "save Transaction",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": \"<number>\",\n  \"description\": \"<string>\",\n  \"transactionDate\": \"0257-24-54\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/purchase-transactions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"purchase-transactions"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"amount\": \"<number>\",\n  \"description\": \"<string>\",\n  \"transactionDate\": \"0257-24-54\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/purchase-transactions",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"purchase-transactions"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"amount\": \"<number>\",\n  \"description\": \"<string>\",\n  \"transactionDate\": \"<dateTime>\",\n  \"id\": \"<long>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "pix",
+							"item": [
+								{
+									"name": "generate",
+									"item": [
+										{
+											"name": "generate Pix Code",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/pix/generate?pixKey=<string>&amount=6184331&merchantCity=<string>&merchantName=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"pix",
+														"generate"
+													],
+													"query": [
+														{
+															"key": "pixKey",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "amount",
+															"value": "6184331",
+															"description": "(Required) "
+														},
+														{
+															"key": "merchantCity",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "merchantName",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/pix/generate?pixKey=<string>&amount=6184331&merchantCity=<string>&merchantName=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"pix",
+																"generate"
+															],
+															"query": [
+																{
+																	"key": "pixKey",
+																	"value": "<string>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "amount",
+																	"value": "6184331",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "merchantCity",
+																	"value": "<string>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "merchantName",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "generate-qr",
+									"item": [
+										{
+											"name": "generate QR Code",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/pix/generate-qr?pixKey=<string>&amount=6184331&merchantCity=<string>&merchantName=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"pix",
+														"generate-qr"
+													],
+													"query": [
+														{
+															"key": "pixKey",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "amount",
+															"value": "6184331",
+															"description": "(Required) "
+														},
+														{
+															"key": "merchantCity",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "merchantName",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/pix/generate-qr?pixKey=<string>&amount=6184331&merchantCity=<string>&merchantName=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"pix",
+																"generate-qr"
+															],
+															"query": [
+																{
+																	"key": "pixKey",
+																	"value": "<string>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "amount",
+																	"value": "6184331",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "merchantCity",
+																	"value": "<string>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "merchantName",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "generate-qr-content",
+									"item": [
+										{
+											"name": "generate QR Code From Code",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/pix/generate-qr-content?content=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"pix",
+														"generate-qr-content"
+													],
+													"query": [
+														{
+															"key": "content",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/pix/generate-qr-content?content=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"pix",
+																"generate-qr-content"
+															],
+															"query": [
+																{
+																	"key": "content",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "save Pix",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"amount\": \"<number>\",\n  \"description\": \"<string>\",\n  \"merchantCity\": \"<string>\",\n  \"merchantName\": \"<string>\",\n  \"pixKey\": \"<string>\",\n  \"transactionDate\": \"9944-31-88\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/pix",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"pix"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"amount\": \"<number>\",\n  \"description\": \"<string>\",\n  \"merchantCity\": \"<string>\",\n  \"merchantName\": \"<string>\",\n  \"pixKey\": \"<string>\",\n  \"transactionDate\": \"9944-31-88\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/pix",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"pix"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"pixKey\": \"<string>\",\n  \"merchantCity\": \"<string>\",\n  \"merchantName\": \"<string>\",\n  \"pixCode\": \"<string>\",\n  \"purchaseTransaction\": {\n    \"amount\": \"<number>\",\n    \"description\": \"<string>\",\n    \"transactionDate\": \"<dateTime>\",\n    \"id\": \"<long>\"\n  }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "counters",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "get Counter By Id",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/counters/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"counters",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/counters/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"counters",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": \"<long>\",\n  \"count\": \"<integer>\",\n  \"name\": \"<string>\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "search",
+									"item": [
+										{
+											"name": "get Counters By Name",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/counters/search?name=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"counters",
+														"search"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/counters/search?name=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"counters",
+																"search"
+															],
+															"query": [
+																{
+																	"key": "name",
+																	"value": "<string>",
+																	"description": "(Required) "
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"id\": \"<long>\",\n    \"count\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"count\": \"<integer>\",\n    \"name\": \"<string>\"\n  }\n]"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "get All Counters",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/counters",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"counters"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/counters",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"counters"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"count\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"count\": \"<integer>\",\n    \"name\": \"<string>\"\n  }\n]"
+										}
+									]
+								},
+								{
+									"name": "create Counter",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<long>\",\n  \"count\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/counters",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"counters"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<long>\",\n  \"count\": \"<integer>\",\n  \"name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/counters",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"counters"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<long>\",\n  \"count\": \"<integer>\",\n  \"name\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "command",
+							"item": [
+								{
+									"name": "execute",
+									"item": [
+										{
+											"name": "execute Command",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<long>\",\n  \"commandLine\": \"<string>\",\n  \"executedAt\": \"<dateTime>\",\n  \"result\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/command/execute?myPass=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"command",
+														"execute"
+													],
+													"query": [
+														{
+															"key": "myPass",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "*/*"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"id\": \"<long>\",\n  \"commandLine\": \"<string>\",\n  \"executedAt\": \"<dateTime>\",\n  \"result\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/command/execute?myPass=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"command",
+																"execute"
+															],
+															"query": [
+																{
+																	"key": "myPass",
+																	"value": "<string>"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "<string>"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "get Commands",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/command?id=<long>&command=<string>&executedAt=<date>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"command"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<long>"
+												},
+												{
+													"key": "command",
+													"value": "<string>"
+												},
+												{
+													"key": "executedAt",
+													"value": "<date>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/command?id=<long>&command=<string>&executedAt=<date>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"command"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<long>"
+														},
+														{
+															"key": "command",
+															"value": "<string>"
+														},
+														{
+															"key": "executedAt",
+															"value": "<date>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<long>\",\n    \"commandLine\": \"<string>\",\n    \"executedAt\": \"<dateTime>\",\n    \"result\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"commandLine\": \"<string>\",\n    \"executedAt\": \"<dateTime>\",\n    \"result\": \"<string>\"\n  }\n]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "queries",
+							"item": [
+								{
+									"name": "execute Queries",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/v1/queries?queries=<string>&queries=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"queries"
+											],
+											"query": [
+												{
+													"key": "queries",
+													"value": "<string>",
+													"description": "(Required) "
+												},
+												{
+													"key": "queries",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/v1/queries?queries=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"queries"
+													],
+													"query": [
+														{
+															"key": "queries",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "actuator",
+			"item": [
+				{
+					"name": "health",
+					"item": [
+						{
+							"name": "**",
+							"item": [
+								{
+									"name": "Actuator web endpoint 'health-path'",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.spring-boot.actuator.v3+json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/actuator/health/**",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"actuator",
+												"health",
+												"**"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/vnd.spring-boot.actuator.v3+json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/actuator/health/**",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"actuator",
+														"health",
+														"**"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Actuator web endpoint 'health'",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.spring-boot.actuator.v3+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/actuator/health",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"actuator",
+										"health"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.spring-boot.actuator.v3+json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/actuator/health",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"actuator",
+												"health"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Actuator root web endpoint",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.spring-boot.actuator.v3+json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/actuator",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"actuator"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.spring-boot.actuator.v3+json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/actuator",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"actuator"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"officiae9\": {\n    \"culpad4\": {\n      \"href\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"fugiat7eb\": {\n      \"href\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"incididunt__\": {\n      \"href\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"irure_1\": {\n      \"href\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9090"
+		}
+	]
+}
